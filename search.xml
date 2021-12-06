@@ -296,7 +296,7 @@
 <p>(1) 折半或者顺序查找索引表，确定所在块；<br>(2) 在已确定的块中顺序查找/折半查找；</p>
 </blockquote>
 <p>设b为索引表长度，s为块中记录个数<br>$ ASL = \frac{1}{b}\sum\limits_{i=1}^b{i} + \sum\limits_{j=1}^s{j} = \frac{1}{2}(b+s)+1 = \frac{1}{2}(\frac{n}{s}+s)+1 $<br>可知 $s$ 取 $\sqrt{n}$ 时，$ASL$ 取最小值 $\sqrt{n}+1$。</p>
-<h5 id="9-2-5-动态查找表"><a href="#9-2-5-动态查找表" class="headerlink" title="9.2.5 动态查找表"></a>9.2.5 动态查找表</h5><p>待完善</p>
+<h5 id="9-3-动态查找表"><a href="#9-3-动态查找表" class="headerlink" title="9.3 动态查找表"></a>9.3 动态查找表</h5><p>待完善</p>
 <h1 id="第十章：内部排序"><a href="#第十章：内部排序" class="headerlink" title="第十章：内部排序"></a>第十章：内部排序</h1><hr>
 <p>待完善</p>
 ]]></content>
