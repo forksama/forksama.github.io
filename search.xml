@@ -9,15 +9,23 @@
 <p>数据结构是一门研究非数值计算的程序设计问题中计算机的操作<strong>对象</strong>以及它们之间的<strong>关系和操作</strong>等等的学科。</p>
 </blockquote>
 <p><strong>程序设计的实质</strong>是对实际问题选择一个好的数据结构，加之设计一个好的算法。而好的算法在很大程度上取决于描述实际问题的数据结构。          </p>
-<p><code>程序 == 算法 + 数据结构</code>    </p>
+<p><code>程序 == 算法 + 数据结构</code>  </p>
+<span id="more"></span>
+
 <h3 id="1-2-基本概念和术语"><a href="#1-2-基本概念和术语" class="headerlink" title="1.2 基本概念和术语"></a>1.2 基本概念和术语</h3><hr>
 <blockquote>
-<p><strong>数据</strong>：被计算机加工处理的对象。<br><strong>数据元素（记录、表目）</strong>：数据的基本单位，是数据集合中的一个个体。<br><strong>数据项</strong>：若干数据项组成一个数据元素。<br><strong>数据对象</strong>：是性质相同的数据元素的集合，是数据的一个子集。</p>
+<ul>
+<li><strong>数据</strong>：被计算机加工处理的对象。</li>
+<li><strong>数据元素（记录、表目）</strong>：数据的基本单位，是数据集合中的一个个体。</li>
+<li><strong>数据项</strong>：若干数据项组成一个数据元素。</li>
+<li><strong>数据对象</strong>：是性质相同的数据元素的集合，是数据的一个子集。</li>
+</ul>
 </blockquote>
 <p><img src="https://api2.mubu.com/v3/document_image/0205cba1-f315-4876-9611-dd0c4db4fbe6-15633121.jpg" alt="图片"></p>
 <blockquote>
-<p><strong>数据类型</strong>：在一种程序设计语言中，变量所具有的数据种类。<br><strong>数据结构</strong>：具有结构的数据元素的集合。它包括数据元素的<strong>逻辑结构</strong>、<strong>存储结构</strong>和相适应的运算。</p>
-<blockquote>
+<ul>
+<li><strong>数据类型</strong>：在一种程序设计语言中，变量所具有的数据种类。</li>
+<li><strong>数据结构</strong>：具有结构的数据元素的集合。它包括数据元素的<strong>逻辑结构</strong>、<strong>存储结构</strong>和相适应的运算。<blockquote>
 <ol>
 <li><strong>逻辑结构</strong>：数据元素之间的逻辑关系，与计算机无关。<blockquote>
 <p>(1) <strong>集合结构</strong>：数据元素除了“属于同一集合”的联系之外，没有其它的关系。<br>(2) <strong>线性结构</strong>：数据元素之间存在一对一的关系。<br>(3) <strong>树型结构</strong>：数据元素之间存在一对多的关系。<br>(4) <strong>图状结构</strong>或<strong>网状结构</strong>：数据元素之间存在多对多的关系。</p>
@@ -36,12 +44,12 @@
 </li>
 </ul>
 </blockquote>
-</blockquote>
-<blockquote>
-<p><strong>运算</strong>：在数据逻辑结构上定义的一组数据被使用的方式，其具体实现要在存储结构上进行。</p>
-<blockquote>
+</li>
+<li><strong>运算</strong>：在数据逻辑结构上定义的一组数据被使用的方式，其具体实现要在存储结构上进行。<blockquote>
 <p>常见的运算：<br>(1)建立数据结构              (6)检索*<br>(2)清除数据结构              (7)更新<br>(3)插入数据元素              (8)判空和判满*<br>(4)删除数据元素              (9)求长*<br>(5)排序<br>*操作为<strong>引用型操作</strong>，即数据值不发生变化；其它为<strong>加工型操作</strong>。  </p>
 </blockquote>
+</li>
+</ul>
 </blockquote>
 <h3 id="1-3-抽象数据类型的表示与实现"><a href="#1-3-抽象数据类型的表示与实现" class="headerlink" title="1.3 抽象数据类型的表示与实现"></a>1.3 抽象数据类型的表示与实现</h3><hr>
 <blockquote>
@@ -116,7 +124,7 @@
 <h3 id="4-3-串的基本操作的实现"><a href="#4-3-串的基本操作的实现" class="headerlink" title="4.3 串的基本操作的实现"></a>4.3 串的基本操作的实现</h3><hr>
 <h5 id="4-3-1-静态结构存储串时的实现示例"><a href="#4-3-1-静态结构存储串时的实现示例" class="headerlink" title="4.3.1 静态结构存储串时的实现示例"></a>4.3.1 静态结构存储串时的实现示例</h5><p>待完善</p>
 <h3 id="4-4-串的匹配算法"><a href="#4-4-串的匹配算法" class="headerlink" title="4.4 串的匹配算法"></a>4.4 串的匹配算法</h3><hr>
-<h5 id="4-4-1-KMP算法"><a href="#4-4-1-KMP算法" class="headerlink" title="4.4.1 KMP算法"></a>4.4.1 KMP算法</h5><p>匹配原理如下：</p>
+<h5 id="4-4-1-KMP算法"><a href="#4-4-1-KMP算法" class="headerlink" title="4.4.1 KMP算法"></a>4.4.1 KMP算法</h5><p>从左到右匹配，原理如下：</p>
 <p><img src="https://api2.mubu.com/v3/document_image/21932a75-63f7-44f8-9e05-ac7db95e7ac2-15633121.jpg" alt="图片"></p>
 <p>KMP算法主体：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int Index_KMP(SString S, SString T, int pos)    //其中S为主串，T为模式串</span><br><span class="line">&#123;                                               //pos为主串开始比较位置</span><br><span class="line">    i = pos;   j = 0;     </span><br><span class="line">    while (i &lt;= S.length &amp;&amp; j &lt;= T.length) </span><br><span class="line">    &#123;</span><br><span class="line">        if (j == -1 || S[i] == T[j]) </span><br><span class="line">            ++i;  ++j;      //继续比较后继字符</span><br><span class="line">        else</span><br><span class="line">            j = next[j];    //模式串向右移动，匹配模式串下一个可匹配的位置</span><br><span class="line">    &#125;</span><br><span class="line">    if (j &gt; T.length)</span><br><span class="line">        return  i-T.length; //匹配一旦成功，立即返回主串中对应的第一个字符位置</span><br><span class="line">    else</span><br><span class="line">        return -1;          //匹配失败，返回-1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -244,7 +252,51 @@
 <h1 id="第六章：树和二叉树"><a href="#第六章：树和二叉树" class="headerlink" title="第六章：树和二叉树"></a>第六章：树和二叉树</h1><hr>
 <p>待完善</p>
 <h1 id="第九章：查找表"><a href="#第九章：查找表" class="headerlink" title="第九章：查找表"></a>第九章：查找表</h1><hr>
-<p>待完善</p>
+<h3 id="9-1-概念和术语"><a href="#9-1-概念和术语" class="headerlink" title="9.1 概念和术语"></a>9.1 概念和术语</h3><hr>
+<blockquote>
+<ul>
+<li> <strong>查找表</strong>：同一类型的记录(数据元素)的集合。</li>
+<li><strong>关键字</strong>：记录(数据元素)中的某个数据项的值。<blockquote>
+<p><strong>主关键字</strong>：该关键字可以唯一地标识一个记录。<br><strong>次关键字</strong>：该关键字不能唯一标识一个记录。</p>
+</blockquote>
+</li>
+<li><strong>查找</strong>：指定某个值，在查找表中确定是否存在一个记录，该记录的关键字等于给定值。</li>
+<li><strong>静态查找表</strong>：对查找表的查找仅是以查询为目的，不改动查找表中的数据。</li>
+<li><strong>动态查找表</strong>：在查找的过程中同时插入不存在的记录，或删除某个已存在的记录。</li>
+<li><strong>查找成功</strong>：查找表中存在满足查找条件的记录。</li>
+<li><strong>查找不成功</strong>：查找表中不存在满足查找条件的记录。</li>
+<li><strong>内查找</strong>：整个查找过程都在内存中进行。</li>
+<li><strong>外查找</strong>：在查找过程中需要访问外存。</li>
+<li><strong>平均查找长度ASL</strong>（ Average Search Length ）：查找方法时效的度量。<blockquote>
+<p>ASL计算方法：$ ASL = \sum\limits_{i=1}^n {p_ic_i} $ 且 $ \sum\limits_{i=1}^n {p_i} = 1 $<br>n：记录的个数<br>pi：查找第i个记录的概率 ( 不特别声明时认为等概率 pi =1/n )<br>ci：找到第i个记录所需的比较次数</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="9-2-静态查找表"><a href="#9-2-静态查找表" class="headerlink" title="9.2 静态查找表"></a>9.2 静态查找表</h3><hr>
+<h5 id="9-2-1-顺序表的查找"><a href="#9-2-1-顺序表的查找" class="headerlink" title="9.2.1 顺序表的查找"></a>9.2.1 顺序表的查找</h5><p>$ ASL = \sum\limits_{i=1}^n {p_ic_i} = \frac{n+1}{2} $</p>
+<h5 id="9-2-2-有序表的查找"><a href="#9-2-2-有序表的查找" class="headerlink" title="9.2.2 有序表的查找"></a>9.2.2 有序表的查找</h5><p>$ ASL = \frac{1}{n}\sum\limits_{i=1}^h {j*2^{j-1}} = \frac{n+1}{n}\log_2{(n+1)}-1 \approx \log_2(n+1)-1 $<br>其中 $ h = \lfloor \log_2{n} \rfloor + 1 $  </p>
+<p>利用<strong>折半查找</strong>加快效率，学习<strong>判定树</strong>的画法。</p>
+<h5 id="9-2-3-静态树表的查找"><a href="#9-2-3-静态树表的查找" class="headerlink" title="9.2.3 静态树表的查找"></a>9.2.3 静态树表的查找</h5><p> 1.静态最优查找树</p>
+<blockquote>
+<p>定义：查找性能最佳的树。<br>性质：带权内路径长度之和PH为最小值。</p>
+</blockquote>
+<p>2.<strong>静态次优查找树</strong></p>
+<blockquote>
+<p>优点：PH值近似最小，且比静态最优查找树易于构造，时间开销少<br><strong>构造方法</strong>：通过令每一个非叶子节点左右子树的权重<strong>尽可能相等</strong>来构造。<br>查找性能：比较次数不超过树的深度 $O(\log_2{n})$。<br>查找步骤：设给定的查找值为K，将根节点作为起始节点。</p>
+<blockquote>
+<p>(1) 若当前指针为NULL，则返回空指针；<br>(2) 若当前指针不为NULL，则将该节点关键字key与K比较：</p>
+<blockquote>
+<p>若K = key，则返回当前节点指针；<br>若K &gt; key，则将其左孩子作为当前节点，转(1)；<br>若K &lt; key，则将其右孩子作为当前节点，转(2)。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h5 id="9-2-4-索引顺序表的查找"><a href="#9-2-4-索引顺序表的查找" class="headerlink" title="9.2.4 索引顺序表的查找"></a>9.2.4 索引顺序表的查找</h5><p>分块查找步骤：</p>
+<blockquote>
+<p>(1) 折半或者顺序查找索引表，确定所在块；<br>(2) 在已确定的块中顺序查找/折半查找；</p>
+</blockquote>
+<p>设b为索引表长度，s为块中记录个数<br>$ ASL = \frac{1}{b}\sum\limits_{i=1}^b{i} + \sum\limits_{j=1}^s{j} = \frac{1}{2}(b+s)+1 = \frac{1}{2}(\frac{n}{s}+s)+1 $<br>可知 $s$ 取 $\sqrt{n}$ 时，$ASL$ 取最小值 $\sqrt{n}+1$。</p>
+<h5 id="9-2-5-动态查找表"><a href="#9-2-5-动态查找表" class="headerlink" title="9.2.5 动态查找表"></a>9.2.5 动态查找表</h5><p>待完善</p>
 <h1 id="第十章：内部排序"><a href="#第十章：内部排序" class="headerlink" title="第十章：内部排序"></a>第十章：内部排序</h1><hr>
 <p>待完善</p>
 ]]></content>
