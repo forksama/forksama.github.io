@@ -277,6 +277,7 @@
 <h5 id="9-2-1-顺序表的查找"><a href="#9-2-1-顺序表的查找" class="headerlink" title="9.2.1 顺序表的查找"></a>9.2.1 顺序表的查找</h5><p>$ ASL = \sum\limits_{i=1}^n {p_ic_i} = \frac{n+1}{2} $</p>
 <h5 id="9-2-2-有序表的查找"><a href="#9-2-2-有序表的查找" class="headerlink" title="9.2.2 有序表的查找"></a>9.2.2 有序表的查找</h5><p>$ ASL = \frac{1}{n}\sum\limits_{i=1}^h {j*2^{j-1}} = \frac{n+1}{n}\log_2{(n+1)}-1 \approx \log_2(n+1)-1 $<br>其中 $ h = \lfloor \log_2{n} \rfloor + 1 $  </p>
 <p>利用<strong>折半查找</strong>加快效率，学习<strong>判定树</strong>的画法。</p>
+<p><img src="https://api2.mubu.com/v3/document_image/cf36e9ab-7d42-413d-a461-691644d4592f-15633121.jpg" alt="判定树的构造"></p>
 <h5 id="9-2-3-静态树表的查找"><a href="#9-2-3-静态树表的查找" class="headerlink" title="9.2.3 静态树表的查找"></a>9.2.3 静态树表的查找</h5><p> 1.静态最优查找树</p>
 <blockquote>
 <p>定义：查找性能最佳的树。<br>性质：带权内路径长度之和PH为最小值。</p>
@@ -291,12 +292,104 @@
 </blockquote>
 </blockquote>
 </blockquote>
-<h5 id="9-2-4-索引顺序表的查找"><a href="#9-2-4-索引顺序表的查找" class="headerlink" title="9.2.4 索引顺序表的查找"></a>9.2.4 索引顺序表的查找</h5><p>分块查找步骤：</p>
+<p><img src="https://api2.mubu.com/v3/document_image/42df3823-13ed-45ae-85bc-b7780237e5ce-15633121.jpg" alt="静态次优查找树构造案例"></p>
+<h5 id="9-2-4-索引顺序表的查找"><a href="#9-2-4-索引顺序表的查找" class="headerlink" title="9.2.4 索引顺序表的查找"></a>9.2.4 索引顺序表的查找</h5><p><img src="https://api2.mubu.com/v3/document_image/d2bb7197-188f-439d-af80-d9a4ff51fa25-15633121.jpg" alt="索引顺序表构造案例"></p>
+<p>分块查找步骤：</p>
 <blockquote>
 <p>(1) 折半或者顺序查找索引表，确定所在块；<br>(2) 在已确定的块中顺序查找/折半查找；</p>
 </blockquote>
 <p>设b为索引表长度，s为块中记录个数<br>$ ASL = \frac{1}{b}\sum\limits_{i=1}^b{i} + \sum\limits_{j=1}^s{j} = \frac{1}{2}(b+s)+1 = \frac{1}{2}(\frac{n}{s}+s)+1 $<br>可知 $s$ 取 $\sqrt{n}$ 时，$ASL$ 取最小值 $\sqrt{n}+1$。</p>
-<h5 id="9-3-动态查找表"><a href="#9-3-动态查找表" class="headerlink" title="9.3 动态查找表"></a>9.3 动态查找表</h5><p>待完善</p>
+<p>分块查找效率介于顺序查找和折半查找之间。</p>
+<h3 id="9-3-动态查找表"><a href="#9-3-动态查找表" class="headerlink" title="9.3 动态查找表"></a>9.3 动态查找表</h3><hr>
+<h5 id="9-3-1-二叉排序树BST-二叉查找-搜索树"><a href="#9-3-1-二叉排序树BST-二叉查找-搜索树" class="headerlink" title="9.3.1 二叉排序树BST(二叉查找/搜索树)"></a>9.3.1 二叉排序树BST(二叉查找/搜索树)</h5><blockquote>
+<ul>
+<li><strong>定义</strong>：二叉排序树或者是空树，或者是满足如下性质的二叉树：<blockquote>
+<p>(1) 若其左子树非空，则左子树上所有结点的值均小于根结点的值；<br>(2) 若其右子树非空，则右子树上所有结点的值均大于根结点的值；<br>(3) 其左右子树本身又各是一棵二叉排序树。</p>
+</blockquote>
+</li>
+<li><strong>性质</strong>：中序遍历一棵二叉排序树，将得到一个以关键字递增排列的有序序列。</li>
+<li><strong>操作</strong>：通常取二叉链表进行操作。<blockquote>
+<p>(1) 查找</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Bitree  SearchBST ( BiTree T,  KeyType key )</span><br><span class="line">// 在二叉排序树T中查找关键字值为 key 的结点，</span><br><span class="line">//找到返回该结点的地址，否则返回空。</span><br><span class="line">&#123;  </span><br><span class="line">    if  (!T || EQ(key, T-&gt;data.key)) </span><br><span class="line">            return (T) ;</span><br><span class="line">    else if(LT(key,T-&gt;data.key)) </span><br><span class="line">           return SearchBST(T-&gt;lchild,key);</span><br><span class="line">    else </span><br><span class="line">           return SearchBST(T-&gt;rchild,key); </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>(2) 插入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Status SearchBST(BiTree T, KeyType key, BiTree f, BiTree &amp;p)</span><br><span class="line">//f指向当前结点的双亲,初始调用值为NULL。</span><br><span class="line">//查找成功，p指向该结点，并返回TRUE；</span><br><span class="line">//查找失败，p指向查找路径上的最后一个结点，并返回FALSE</span><br><span class="line">&#123;  </span><br><span class="line">    if (!T)  &#123;p=f;  return FALSE;&#125;</span><br><span class="line">    else if (EQ(key, T-&gt;data.key)) &#123;  p=T; return TRUE; &#125;  </span><br><span class="line">    else if (LT(key, T-&gt;data.key))  </span><br><span class="line">        return SearchBST(T-&gt;lchild, key, T, p );</span><br><span class="line">    else</span><br><span class="line">        return SearchBST(T-&gt;rchild, key, T, p);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Status InsertBST (BiTree &amp;T,ElemType e) </span><br><span class="line">&#123;</span><br><span class="line">    if (!SearchBST(T, e.key, NULL, P))</span><br><span class="line">    &#123;</span><br><span class="line">        s=(BiTree)malloc(sizeof(BiTNode));</span><br><span class="line">        s-&gt;data=e;</span><br><span class="line">        s-&gt;lchild=s-&gt;rchild=NULL;</span><br><span class="line">        if (!T)</span><br><span class="line">            T=s;</span><br><span class="line">        else if (LT(e.key, p-&gt;data.key))</span><br><span class="line">            p-&gt;lchild = s;</span><br><span class="line">        else</span><br><span class="line">            p-&gt;rchild = s;</span><br><span class="line">        return TRUE;</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">        return FALSE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(3) 生成：从空树出发，反复调用插入操作InsertBST。<br>(4) 删除：</p>
+<blockquote>
+<p>p是叶子结点：修改其双亲指针;<br>p只有左孩子：用p的左子树代替以p为根的子树;<br>p只有右孩子：用p的右子树代替以p为根的子树;<br>p有两个孩子：找到p的中序后继(或前趋)结点q，将q的数据复制给p，再删除只有右孩子(或左孩子)/无孩子的q。<br><img src="https://api2.mubu.com/v3/document_image/d4c015c4-7ca0-4010-8e98-dbf5b575d73b-15633121.jpg" alt="删除案例"></p>
+</blockquote>
+</blockquote>
+</li>
+<li><strong>性能分析</strong>：<blockquote>
+<p>最差(单支树)：$ \frac{n+1}{2} $<br>最好(类似折半查找的判定树)：$ \log_2{(n+1)}-1 $<br>随机：$ \leq 4\log_2{n} $</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p>可知为避免二叉排序树“退化”，采用平衡二叉树。</p>
+<h5 id="9-3-2-平衡二叉树-AVL树"><a href="#9-3-2-平衡二叉树-AVL树" class="headerlink" title="9.3.2 平衡二叉树(AVL树)"></a>9.3.2 平衡二叉树(AVL树)</h5><blockquote>
+<ul>
+<li><strong>定义</strong>：或者是空树，或者是满足如下性质的二叉排序树：<blockquote>
+<p>(1) 它的<strong>平衡因子</strong>的绝对值不超过1；<br>(2) 其左右子树本身又各是一棵平衡二叉树。<br><strong>平衡因子</strong>：该结点的左子树高度减去右子树的高度。</p>
+</blockquote>
+</li>
+<li>节点存储结构：<img src="https://api2.mubu.com/v3/document_image/b3815c39-a999-4991-8907-1a7066f79a2d-15633121.jpg" alt="存储结构"></li>
+<li>定理：平均查找长度与 $ log_2{n} $ 同数量级。</li>
+<li>操作<blockquote>
+<ol>
+<li>查找：同二叉排序树。</li>
+<li>插入：利用<strong>平衡旋转技术</strong>。<blockquote>
+<p>(1) LL型平衡旋转 —— 单向右旋（一次顺时针旋转）<br><img src="https://api2.mubu.com/v3/document_image/fdb7c861-a382-41de-b085-78accd3ee28b-15633121.jpg" alt="LL型平衡旋转"><br>(2) RR型平衡旋转 —— 单向左旋（一次逆时针旋转）<br><img src="https://api2.mubu.com/v3/document_image/d3704d57-f7e8-42cc-bb03-e59a7a897b2b-15633121.jpg" alt="RR型平衡旋转"><br>(3) LR型平衡旋转 —— 一次逆时针旋转 + 一次顺时针旋转<br><img src="https://api2.mubu.com/v3/document_image/d504e162-a78c-49d0-9e70-0e3e67698f7a-15633121.jpg" alt="LR型平衡旋转"><br>(4) RL型平衡旋转 —— 一次顺时针旋转 + 一次逆时针旋转<br><img src="https://api2.mubu.com/v3/document_image/ec947f89-39bb-4a6d-86fc-6aeacc32a5fc-15633121.jpg" alt="RL型平衡旋转"></p>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h5 id="9-3-3-B-树-B-tree，B即balanced"><a href="#9-3-3-B-树-B-tree，B即balanced" class="headerlink" title="9.3.3 B-树 (B-tree，B即balanced)"></a>9.3.3 B-树 (B-tree，B即balanced)</h5><blockquote>
+<ul>
+<li><strong>定义</strong>：一棵<strong>m阶</strong>B-树，或为空树，或为满足下列特性的m叉树：<blockquote>
+<ol>
+<li>树中每个结点最多有 <strong>m</strong> 棵子树；</li>
+<li>若根结点不是叶子结点，则最少有<strong>两</strong>棵子树；</li>
+<li>除根之外的所有非叶子结点最少有 <strong>$ \lceil \frac{m}{2} \rceil $</strong> 棵子树；</li>
+<li>所有非叶子结点包含 （<strong>n,A0,K1,A1,K2,…,Kn,An</strong>）信息数据；其中n为结点中关键字个数，Ai为指向子树的指针，Ki为关键字。</li>
+<li>所有叶子结点在同一层上，且不带信息。</li>
+</ol>
+</blockquote>
+</li>
+<li>查找：设查找时给定值为K，从根结点开始。<blockquote>
+<p>(1) 在当前结点*p中顺序或者折半查找，若找到某个i，满足key[i]=K，则查找成功，返回p、i、1，否则，确定满足key[i]&lt;K&lt;key[i+1]的i值；<br>(2) 若*p结点中的ptr[i]为空指针，则查找失败，返回p、i、0；<br>(3) 从磁盘上读入ptr[i]指示的结点 DiskRead(p-&gt;ptr[i])，将此结点作为当前结点，转(a)。</p>
+</blockquote>
+</li>
+<li>插入：插入至叶节点的$ \lceil \frac{m}{2} \rceil $处，当节点关键字达到 m 个时分裂。若由底向上至根结点仍需分裂时，需要构造新的根结点，B-树会增加一层。<blockquote>
+<p><img src="https://api2.mubu.com/v3/document_image/bfe27f76-ea59-4100-b8c5-1fb606c14718-15633121.jpg" alt="m=4的插入案例"></p>
+</blockquote>
+</li>
+<li>生成：从空树起，逐个插入关键字得到。</li>
+<li>删除：分三种情况。<blockquote>
+<p><img src="https://api2.mubu.com/v3/document_image/da86b9c7-7274-4134-b9df-faf7d81f848e-15633121.jpg" alt="第一种删除情况"><br><img src="https://api2.mubu.com/v3/document_image/cbfc19c3-ee34-480b-82e8-19a8f3661150-15633121.jpg" alt="第二种删除情况"><br><img src="https://api2.mubu.com/v3/document_image/c55ab0a1-fa75-4310-8f01-abb0d7f1f38a-15633121.jpg" alt="第三种删除情况"></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h5 id="9-3-4-B-树"><a href="#9-3-4-B-树" class="headerlink" title="9.3.4 B+树"></a>9.3.4 B+树</h5><p>是B-树的变形。有 n 棵子树的结点中有 n 个关键字；非叶结点保存的可以看成是<strong>索引集</strong>，即下一个节点内最大的数，而叶节点内保存的是<strong>数据集</strong>。</p>
+<p><img src="https://api2.mubu.com/v3/document_image/4e1155ab-10d5-474f-9fb7-8677db5a71fd-15633121.jpg" alt="B+树案例"></p>
+<p>各操作与B-树相同。</p>
+<h5 id="9-3-5-键树-数字查找树-字符树"><a href="#9-3-5-键树-数字查找树-字符树" class="headerlink" title="9.3.5 键树(数字查找树/字符树)"></a>9.3.5 键树(数字查找树/字符树)</h5><p>将关键字分解为字符的多叉树，多叉树中的每个结点只代表关键字中的一个字符，叶结点用于表示字符串的结束符(如‘$’)。</p>
+<p><img src="https://api2.mubu.com/v3/document_image/84de1022-ef04-47fd-8035-8459e1b45e74-15633121.jpg" alt="键树案例"></p>
+<h3 id="9-4-哈希表"><a href="#9-4-哈希表" class="headerlink" title="9.4 哈希表"></a>9.4 哈希表</h3><hr>
+<h5 id="9-4-1-基本术语"><a href="#9-4-1-基本术语" class="headerlink" title="9.4.1 基本术语"></a>9.4.1 基本术语</h5><blockquote>
+<ul>
+<li><strong>哈希表</strong>：一个有限的连续的地址空间，用以容纳按哈希地址存储的记录。</li>
+<li><strong>哈希函数</strong>：记录的存储位置与它的关键字之间存在的一种对应关系。  $ Location = H(key) $</li>
+<li><strong>冲突</strong>：对于 $key_i \neq key_j$ ，$i \neq j$ ，出现的 $H(key_i) = H(key_j)$的现象。 </li>
+<li><strong>同义词</strong>：在同一地址出现冲突的各关键字。 </li>
+<li><strong>哈希(散列)地址</strong>：根据设定的哈希函数$H(key)$和处理冲突的方法确定的记录的存储位置。</li>
+<li><strong>装填因子</strong>：表中填入的记录数 n 和哈希表表长 m 之比。<br>$\alpha=\frac{n}{m}$</li>
+</ul>
+</blockquote>
+<h5 id="9-4-2-哈希函数的基本构造方法"><a href="#9-4-2-哈希函数的基本构造方法" class="headerlink" title="9.4.2 哈希函数的基本构造方法"></a>9.4.2 哈希函数的基本构造方法</h5><p>待完善</p>
 <h1 id="第十章：内部排序"><a href="#第十章：内部排序" class="headerlink" title="第十章：内部排序"></a>第十章：内部排序</h1><hr>
 <p>待完善</p>
 ]]></content>
@@ -306,5 +399,10 @@
     <url>/2021/12/05/hello-world/</url>
     <content><![CDATA[<p>但其实什么也没有捏</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>马原</title>
+    <url>/2021/12/07/%E9%A9%AC%E5%8E%9F/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
