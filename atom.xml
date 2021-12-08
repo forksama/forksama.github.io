@@ -6,7 +6,7 @@
   <link href="http://forksama.github.io/atom.xml" rel="self"/>
   
   <link href="http://forksama.github.io/"/>
-  <updated>2021-12-08T10:59:17.611Z</updated>
+  <updated>2021-12-08T11:05:24.043Z</updated>
   <id>http://forksama.github.io/</id>
   
   <author>
@@ -17,11 +17,26 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>马原</title>
+    <title>离散数学（下）</title>
+    <link href="http://forksama.github.io/2021/12/08/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%EF%BC%88%E4%B8%8B%EF%BC%89/"/>
+    <id>http://forksama.github.io/2021/12/08/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%EF%BC%88%E4%B8%8B%EF%BC%89/</id>
+    <published>2021-12-08T11:04:52.000Z</published>
+    <updated>2021-12-08T11:05:24.043Z</updated>
+    
+    
+    
+    
+    
+    <category term="离散数学" scheme="http://forksama.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>马克思主义基本原理概论</title>
     <link href="http://forksama.github.io/2021/12/07/%E9%A9%AC%E5%8E%9F/"/>
     <id>http://forksama.github.io/2021/12/07/%E9%A9%AC%E5%8E%9F/</id>
     <published>2021-12-07T05:58:36.000Z</published>
-    <updated>2021-12-08T10:59:17.611Z</updated>
+    <updated>2021-12-08T11:05:53.196Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;导论&quot;&gt;&lt;a href=&quot;#导论&quot; class=&quot;headerlink&quot; title=&quot;导论&quot;&gt;&lt;/a&gt;导论&lt;/h1&gt;&lt;hr&gt;
