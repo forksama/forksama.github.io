@@ -53,6 +53,17 @@
 <body>
   <div id="app">
     
+      <canvas class="fireworks"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
       
     <main class="content on">
       <section class="outer">
@@ -2645,7 +2656,7 @@
 </ul>
 </blockquote>
 </li>
-<li><strong>贮藏手段</strong>：货币退出流通领域作为社会财富的一般代表被保存起来的只能。<blockquote>
+<li><strong>贮藏手段</strong>：货币退出流通领域作为社会财富的一般代表被保存起来的职能。<blockquote>
 <p><em>大量的金银不拿出来用，作为财富囤积起来</em></p>
 </blockquote>
 </li>
@@ -2801,7 +2812,7 @@
 <li>维持劳动者本人生存所必须的生活资料的价值；</li>
 <li>维持劳动者家属的生存所必需的生活资料的价值；</li>
 <li>劳动者接受教育和训练所支出的费用。<blockquote>
-<p><em>从小到大所受教育花出去的钱都是你先垫付一下，以后资本家慢慢还给你。例如本科人↑人薪资一般比高中生高</em></p>
+<p><em>从小到大所受教育花出去的钱都是你先垫付一下，以后资本家慢慢还给你。例如本科生薪资一般比高中生高</em></p>
 </blockquote>
 </li>
 </ol>
@@ -4436,6 +4447,10 @@
 
 <!-- ClickBoom1 -->
 
+<script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script>
+
+<script src="/js/clickBoom1.js"></script>
+ 
 <!-- ClickBoom2 -->
 
 <!-- CodeCopy -->
@@ -4497,9 +4512,7 @@
 </script>
  
 <!-- CanvasBackground -->
- 
-<script src="/js/dz.js"></script>
- 
+
 <script>
   if (window.mermaid) {
     mermaid.initialize({ theme: "forest" });
