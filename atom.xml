@@ -6,7 +6,7 @@
   <link href="http://forksama.github.io/atom.xml" rel="self"/>
   
   <link href="http://forksama.github.io/"/>
-  <updated>2021-12-16T13:45:18.614Z</updated>
+  <updated>2021-12-23T17:01:06.391Z</updated>
   <id>http://forksama.github.io/</id>
   
   <author>
@@ -21,11 +21,10 @@
     <link href="http://forksama.github.io/2021/12/07/%E9%A9%AC%E5%8E%9F/"/>
     <id>http://forksama.github.io/2021/12/07/%E9%A9%AC%E5%8E%9F/</id>
     <published>2021-12-07T05:58:36.000Z</published>
-    <updated>2021-12-16T13:45:18.614Z</updated>
+    <updated>2021-12-23T17:01:06.391Z</updated>
     
     
-    <summary type="html">&lt;p&gt;&lt;del&gt;要是开卷考试就小丑了&lt;/del&gt;&lt;/p&gt;
-&lt;h1 id=&quot;导论&quot;&gt;&lt;a href=&quot;#导论&quot; class=&quot;headerlink&quot; title=&quot;导论&quot;&gt;&lt;/a&gt;导论&lt;/h1&gt;&lt;hr&gt;
+    <summary type="html">&lt;h1 id=&quot;导论&quot;&gt;&lt;a href=&quot;#导论&quot; class=&quot;headerlink&quot; title=&quot;导论&quot;&gt;&lt;/a&gt;导论&lt;/h1&gt;&lt;hr&gt;
 &lt;ul&gt;
 &lt;li&gt;马原&lt;ul&gt;
 &lt;li&gt;总论&lt;/li&gt;
@@ -55,11 +54,11 @@
     <link href="http://forksama.github.io/2021/12/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     <id>http://forksama.github.io/2021/12/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</id>
     <published>2021-12-06T13:00:58.000Z</published>
-    <updated>2021-12-13T01:35:16.073Z</updated>
+    <updated>2021-12-23T17:00:29.946Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;第一章：绪论&quot;&gt;&lt;a href=&quot;#第一章：绪论&quot; class=&quot;headerlink&quot; title=&quot;第一章：绪论&quot;&gt;&lt;/a&gt;第一章：绪论&lt;/h1&gt;&lt;hr&gt;
-&lt;h3 id=&quot;1-1-什么是数据结构&quot;&gt;&lt;a href=&quot;#1-1-什么是数据结构&quot; class=&quot;headerlink&quot; title=&quot;1.1 什么是数据结构&quot;&gt;&lt;/a&gt;1.1 什么是数据结构&lt;/h3&gt;&lt;hr&gt;
+&lt;h2 id=&quot;1-1-什么是数据结构&quot;&gt;&lt;a href=&quot;#1-1-什么是数据结构&quot; class=&quot;headerlink&quot; title=&quot;1.1 什么是数据结构&quot;&gt;&lt;/a&gt;1.1 什么是数据结构&lt;/h2&gt;&lt;hr&gt;
 &lt;blockquote&gt;
 &lt;p&gt;数据结构是一门研究非数值计算的程序设计问题中计算机的操作&lt;strong&gt;对象&lt;/strong&gt;以及它们之间的&lt;strong&gt;关系和操作&lt;/strong&gt;等等的学科。&lt;/p&gt;
 &lt;/blockquote&gt;
