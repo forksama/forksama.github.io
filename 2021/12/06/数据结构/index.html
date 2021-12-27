@@ -95,7 +95,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">7.6k</span>
+            <span class="post-count">8.9k</span>
         </span>
     </span>
 
@@ -104,7 +104,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">30 分钟</span>
+            <span class="post-count">35 分钟</span>
         </span>
     </span>
 </div>
@@ -277,7 +277,7 @@
 <td align="center">next[j]</td>
 <td align="center">-1</td>
 <td align="center">0</td>
-<td align="center">1</td>
+<td align="center">0</td>
 <td align="center">1</td>
 <td align="center">1</td>
 <td align="center">2</td>
@@ -358,7 +358,7 @@
 <td align="center">-1</td>
 <td align="center">-1</td>
 <td align="center">-1</td>
-<td align="center">-1</td>
+<td align="center">4</td>
 </tr>
 </tbody></table>
 <p>跳过了重复比较，效率得到极大提高。</p>
@@ -688,15 +688,183 @@
 </ul>
 </li>
 </ul>
-<h3 id="10-4-2-树形选择排序（锦标赛排序）"><a href="#10-4-2-树形选择排序（锦标赛排序）" class="headerlink" title="10.4.2 树形选择排序（锦标赛排序）"></a>10.4.2 树形选择排序（锦标赛排序）</h3><h3 id="10-4-3-堆排序"><a href="#10-4-3-堆排序" class="headerlink" title="10.4.3 堆排序"></a>10.4.3 堆排序</h3><p>小根堆：每个节点都比左右孩子小<br>大根堆：每个节点都比左右孩子大</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">void HeapSort(HeapType &amp;H)</span><br><span class="line">&#123;  </span><br><span class="line">    for (i = H. length / 2; i &gt; 0; i--)   </span><br><span class="line">        HeapAdjust(H, i, H.length);</span><br><span class="line">    for (i=H.length; i&gt;1; i--) </span><br><span class="line">    &#123;</span><br><span class="line">        H.r[1]←→H.r[i];</span><br><span class="line">        HeapAdjust(H, 1, i-1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;//HeapSort</span><br><span class="line"></span><br><span class="line">void HeapAdjust(HeapType &amp;H, int s, int m)</span><br><span class="line">&#123;  </span><br><span class="line">    rc=H.r[s];</span><br><span class="line">    for (j=2*s;j&lt;=m;j*=2) </span><br><span class="line">    &#123;</span><br><span class="line">        if (j&lt;m &amp;&amp; H.r[j].key &lt; H.r[j+1].key) </span><br><span class="line">            j++;</span><br><span class="line">        if (rc.key &gt; H.r[j].key) </span><br><span class="line">            break;</span><br><span class="line">        H.r[s] = H.r[j];  </span><br><span class="line">        s=j;</span><br><span class="line">    &#125;</span><br><span class="line">    H.r[s]=rc;</span><br><span class="line">&#125;//HeapAdjust</span><br></pre></td></tr></table></figure>
+<h3 id="10-4-2-树形选择排序（锦标赛排序）"><a href="#10-4-2-树形选择排序（锦标赛排序）" class="headerlink" title="10.4.2 树形选择排序（锦标赛排序）"></a>10.4.2 树形选择排序（锦标赛排序）</h3><ul>
+<li><p>是一种稳定排序。</p>
+</li>
+<li><p>算法思想：每次进行一次排序后把树顶端元素选出，将树中对应选出的叶子节点设为$\infty$，之后再继续排序，直到所有叶子节点都被设置为$\infty$。</p>
+</li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/dcf68e5f-e69e-41aa-83b8-a9f07064d1bc-15633121.jpg"><br><img src="https://api2.mubu.com/v3/document_image/3e89c57d-c115-4a13-8806-be7f78cf872c-15633121.jpg"><br>……</p>
+<ul>
+<li>性能分析：<ul>
+<li>时间复杂度：$O(nlog_2n)$</li>
+<li>空间复杂度：有点小多</li>
+<li>需与“最大值”进行多余的比较</li>
+</ul>
+</li>
+</ul>
+<h3 id="10-4-3-堆排序"><a href="#10-4-3-堆排序" class="headerlink" title="10.4.3 堆排序"></a>10.4.3 堆排序</h3><ul>
+<li><p>小根堆：每个节点都比左右孩子小</p>
+</li>
+<li><p>大根堆：每个节点都比左右孩子大</p>
+</li>
+<li><p>是一种不稳定排序。</p>
+</li>
+<li><p>算法思想：首先将初始文件建成长度为 n 的大根堆，之后每次排序将堆顶元素与最后一个元素交换后，再将前 n-1 个元素调整为堆，重复 n-1 次。</p>
+</li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/1e2fcb2e-2c18-4c38-94a7-a3697f5823ff-15633121.jpg"><br><img src="https://api2.mubu.com/v3/document_image/ab3dca74-ec3d-41ff-8d46-2ec1b5c23e0b-15633121.jpg"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">typedef  SqList   HeapType;</span><br><span class="line"></span><br><span class="line">void HeapSort(HeapType &amp;H)  //第一个元素啥也不放</span><br><span class="line">&#123;  </span><br><span class="line">    for (i = H. length / 2; i &gt; 0; i--)   //对所有的非叶子节点，从序号最大的开始依次调整为堆</span><br><span class="line">        HeapAdjust(H, i, H.length);</span><br><span class="line">    for (i=H.length; i&gt;1; i--) </span><br><span class="line">    &#123;</span><br><span class="line">        Switch(H.r[1],H.r[i]);  //交换栈顶元素和最后一个元素</span><br><span class="line">        HeapAdjust(H, 1, i-1);  //下沉现在的栈顶元素，使之重新成堆</span><br><span class="line">    &#125;</span><br><span class="line">&#125;//HeapSort</span><br><span class="line"></span><br><span class="line">void HeapAdjust(HeapType &amp;H, int s, int m)  //将标号为s的节点下沉到不能再沉</span><br><span class="line">&#123;  </span><br><span class="line">    rc=H.r[s];      //取根节点元素</span><br><span class="line">    for (j=2*s;j&lt;=m;j*=2)   //取左孩子</span><br><span class="line">    &#123;</span><br><span class="line">        if (j&lt;m &amp;&amp; H.r[j].key &lt; H.r[j+1].key)   //如果左孩子已经是最后一个元素，或没有孩子，则跳过该步</span><br><span class="line">            j++;    //若右孩子的关键字大于左孩子的关键字，则取右</span><br><span class="line">        if (rc.key &gt; H.r[j].key) //若根节点的关键字大于该孩子的关键字</span><br><span class="line">            break;   //退出循环</span><br><span class="line">        H.r[s] = H.r[j];    //将该孩子放在父亲的位置</span><br><span class="line">        s=j;    //现在父亲的位置变成该孩子原来的位置</span><br><span class="line">    &#125;</span><br><span class="line">    H.r[s]=rc;  //将根节点放入最终位置</span><br><span class="line">&#125;//HeapAdjust</span><br></pre></td></tr></table></figure>
 
-<h3 id="10-4-4-归并排序"><a href="#10-4-4-归并排序" class="headerlink" title="10.4.4 归并排序"></a>10.4.4 归并排序</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">Void MergeSort(SqList &amp;L)	</span><br><span class="line">// 将顺序表 L 进行归并排序</span><br><span class="line">&#123;   </span><br><span class="line">    Msort ( L.r, L.r, 1, L.length )  ；</span><br><span class="line">&#125;//MergeSort</span><br><span class="line"></span><br><span class="line">Void MSort( RedType SR[], RedType &amp;TR1[], int s, int t  )</span><br><span class="line">// 将 SR[s..t] 归并排序为 TR1[ s..t]</span><br><span class="line"> &#123;  if  ( s == t )   </span><br><span class="line">        TR1[s] = SR[s];</span><br><span class="line">    else  </span><br><span class="line">    &#123; </span><br><span class="line">        m = ( S+ t)/2 ; // 将SR[s..t]分为SR[s..m]和SR[m+1..t]</span><br><span class="line">        Msort(SR,TR2, s,m); // 将SR[s..m]归并为有序的TR2[s..m]</span><br><span class="line">        Msort(SR,TR2,m+1, t);// 将SR[m+1..t]归并为有序的TR2[m+1..t] </span><br><span class="line">        Merge(TR2,TR1,s,m, t);// 将TR2[s..m]和TR2[m+1..t] 归并到TR1[s..t]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;//MSort</span><br><span class="line"></span><br><span class="line">Void Merge(RedType SR[ ], RedType &amp;TR[], int i, int m, int n)</span><br><span class="line">// 将有序的SR[i..m] 和 SR[m+1..n]归并为有序的TR[i..n]</span><br><span class="line">&#123;        </span><br><span class="line">    for (j=m+1, k=i; i&lt;=m &amp;&amp; j&lt;=n; k++) </span><br><span class="line">    &#123;</span><br><span class="line">        if ( SR[i].key &lt;= SR[j].key)</span><br><span class="line">            TR[k] = SR[i++];</span><br><span class="line">        else </span><br><span class="line">            TR[k] = SR[j++];</span><br><span class="line">    &#125;</span><br><span class="line">    if (i&lt;=m) </span><br><span class="line">        TR[k..n] = SR[i..m];</span><br><span class="line">    if (j&lt;=n)  </span><br><span class="line">        TR[k..n] = SR[j..n];</span><br><span class="line">&#125;//Merge</span><br></pre></td></tr></table></figure>
+<ul>
+<li>性能分析：<ul>
+<li>时间复杂度：<blockquote>
+<p>最好情况：$O(nlog_2n)$<br>最坏情况：$O(nlog_2n)$<br>平均情况：$O(nlog_2n)$</p>
+<ul>
+<li>平均性能接近于最坏性能</li>
+<li>建初始堆时，比较次数$\leq 4n$</li>
+<li>反复调整堆时，比较次数$&lt;2n\lfloor log_2n \rfloor$</li>
+</ul>
+</blockquote>
+</li>
+<li>空间复杂度：$O(1)$</li>
+<li>对记录大的文件很有效</li>
+</ul>
+</li>
+</ul>
+<h2 id="10-5-归并排序"><a href="#10-5-归并排序" class="headerlink" title="10.5 归并排序"></a>10.5 归并排序</h2><hr>
+<h3 id="10-5-1-两路归并排序"><a href="#10-5-1-两路归并排序" class="headerlink" title="10.5.1 两路归并排序"></a>10.5.1 两路归并排序</h3><ul>
+<li><p>是一种稳定排序。</p>
+</li>
+<li><p>算法思想：首先将待排序列看作 n 个长度为 1 的有序子序列，之后每趟排序两两归并，并保证每次排序后每个子序列内部有序，直到合并为一个序列为止。</p>
+</li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/a20cec85-adff-4476-812b-5fa408c3cc9c-15633121.jpg" alt="案例"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">//递归算法</span><br><span class="line">void MergeSort(SqList &amp;L)	 //包装函数 第一个元素也是啥也不放</span><br><span class="line">&#123;   </span><br><span class="line">    Msort ( L.r, L.r, 1, L.length )  ；</span><br><span class="line">&#125;//MergeSort</span><br><span class="line"></span><br><span class="line">void MSort( RedType SR[], RedType &amp;TR1[], int s, int t  )</span><br><span class="line">// 将 SR[s..t] 归并排序为 TR1[ s..t]</span><br><span class="line">&#123;  </span><br><span class="line">    RedType TR2[t+1-s];     //自下而上的排序</span><br><span class="line"></span><br><span class="line">    if( s == t )   </span><br><span class="line">        TR1[s] = SR[s];</span><br><span class="line">    else  </span><br><span class="line">    &#123; </span><br><span class="line">        m = ( S+ t)/2 ; // 将SR[s..t]分为SR[s..m]和SR[m+1..t]</span><br><span class="line">        Msort(SR,TR2, s,m); // 将SR[s..m]归并为有序的TR2[s..m]</span><br><span class="line">        Msort(SR,TR2,m+1, t);// 将SR[m+1..t]归并为有序的TR2[m+1..t] </span><br><span class="line">        Merge(TR2,TR1,s,m, t);// 将TR2[s..m]和TR2[m+1..t] 归并到TR1[s..t]</span><br><span class="line">    &#125; </span><br><span class="line">&#125;//MSort</span><br><span class="line"></span><br><span class="line">void Merge(RedType SR[ ], RedType &amp;TR[], int i, int m, int n)</span><br><span class="line">&#123;       //此时的SR，前一半和后一半是不相干的有序序列   </span><br><span class="line">    for (j=m+1, k=i; i&lt;=m &amp;&amp; j&lt;=n; k++)    </span><br><span class="line">    &#123;   //每次比较两个序列的当前元素，把关键字较小的元素插入TR</span><br><span class="line">        if ( SR[i].key &lt;= SR[j].key)</span><br><span class="line">            TR[k] = SR[i++];    //若插入了前一半序列的当前元素，则i++</span><br><span class="line">        else </span><br><span class="line">            TR[k] = SR[j++];    //若插入了后一半序列的当前元素，则j++</span><br><span class="line">    &#125;</span><br><span class="line">    if (i&lt;=m) </span><br><span class="line">        TR[k..n] = SR[i..m];    //若后一半插完了，则把前一半剩下的插进去</span><br><span class="line">    if (j&lt;=n)  </span><br><span class="line">        TR[k..n] = SR[j..n];    //若前一半插完了，则把后一半剩下的插进去</span><br><span class="line">&#125;//Merge</span><br></pre></td></tr></table></figure>
+<p><img src="https://api2.mubu.com/v3/document_image/c111fe2c-dee2-49c8-a6aa-e15a8145bbcd-15633121.jpg" alt="案例"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//非递归算法</span><br><span class="line">void  MergeSort (SqList &amp;L)     //第一个元素啥也不放</span><br><span class="line">&#123;    </span><br><span class="line">    len =1; </span><br><span class="line">    n= L.Length;</span><br><span class="line">    while ( len &lt; n ) </span><br><span class="line">    &#123;</span><br><span class="line">        s1= 1;  </span><br><span class="line">        while  (s1 + len &lt;= n)  // 其实就是上一次的 t2+1+len &gt; n 则退出循环（第n个元素肯定被排过序了）</span><br><span class="line">        &#123;</span><br><span class="line">            t1 = s1 +len - 1;   //开始元素</span><br><span class="line">            t2 = t1 + len;      //结束元素</span><br><span class="line">            if (t2 &gt; n)     //如果超过总长度，则设置为总长度</span><br><span class="line">                t2 = n;</span><br><span class="line">            Merge ( L.r, TR, s1, t1, t2);    //Merge还是那个Merge</span><br><span class="line">            s1 = t2+1;</span><br><span class="line">        &#125;</span><br><span class="line">        for  (i = 1; i&lt;s1; i++)    //将第一个元素到当前最后一个元素从TR搬回L</span><br><span class="line">            L.r [ i ] = TR[ i ];</span><br><span class="line">        len = len*2;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;//MergeSort</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">void  MergeSort (SqList &amp;L)</span><br><span class="line">&#123;    len =1; n= L.Length;</span><br><span class="line">      while  ( len &lt; n )  &#123;</span><br><span class="line">              s1= 1;  </span><br><span class="line">              while  (s1 + len &lt;= n  )  &#123;</span><br><span class="line">                   t1 = s1 +len - 1;   t2 = t1 + len ; </span><br><span class="line">                   if  (t2 &gt; n)    t2 = n;</span><br><span class="line">                   Merge ( L.r, TR, s1, t1, t2);   </span><br><span class="line">                   s1 = t2+1;</span><br><span class="line">              &#125;</span><br><span class="line">              for  (i = 1; i&lt;s1; i++)     L.r [ i ] = TR[ i ];</span><br><span class="line">              len = len*2;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;//MergeSort</span><br></pre></td></tr></table></figure>
+<h3 id="10-5-2-自然两路归并排序"><a href="#10-5-2-自然两路归并排序" class="headerlink" title="10.5.2 自然两路归并排序"></a>10.5.2 自然两路归并排序</h3><ul>
+<li><p>是一种不稳定排序。</p>
+</li>
+<li><p>特点：比直接两路归并更有效</p>
+</li>
+<li><p>算法思想：左右往中间走的同时进行归并，碰到比当前元素小的元素便停下，当左右都停下时完成一个归并。归并按照左一个右一个的顺序放置，两边小中间大。</p>
+</li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/95ef7a7d-5c17-470d-b873-1750918b5e32-15633121.jpg" alt="案例"></p>
+<h2 id="10-6-基数排序"><a href="#10-6-基数排序" class="headerlink" title="10.6 基数排序"></a>10.6 基数排序</h2><ul>
+<li><p>是一种稳定排序。</p>
+</li>
+<li><p>算法思想：好长不想写，代码也不想写，看图理解</p>
+</li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/20422178-f3e7-41d6-9d5b-fea6b0f2ca19-15633121.jpg" alt="案例"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="10-4-5-自然两路归并排序"><a href="#10-4-5-自然两路归并排序" class="headerlink" title="10.4.5 自然两路归并排序"></a>10.4.5 自然两路归并排序</h3><h3 id="10-4-6-基数排序"><a href="#10-4-6-基数排序" class="headerlink" title="10.4.6 基数排序"></a>10.4.6 基数排序</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
+<ul>
+<li>性能分析：<ul>
+<li>时间复杂度：<ul>
+<li>每趟：分配$O(n)$  ，收集 $O(rd)$</li>
+<li>d趟总计：$O(d(n+rd))$</li>
+<li>总时间复杂度：$O(n)$</li>
+</ul>
+</li>
+<li>空间复杂度：$O(rd+n)$</li>
+</ul>
+</li>
+</ul>
+<h2 id="10-7-各种内部排序方法的比较"><a href="#10-7-各种内部排序方法的比较" class="headerlink" title="10.7 各种内部排序方法的比较"></a>10.7 各种内部排序方法的比较</h2><table>
+<thead>
+<tr>
+<th align="center">排序方法</th>
+<th align="center">最好时间</th>
+<th align="center">平均时间</th>
+<th align="center">最坏时间</th>
+<th align="center">辅助空间</th>
+<th align="center">稳定性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">直接插入</td>
+<td align="center">$O(n)$</td>
+<td align="center">$O(n^2)$</td>
+<td align="center">$O(n^2)$</td>
+<td align="center">$O(1)$</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">希尔排序</td>
+<td align="center"></td>
+<td align="center">$O(n^{1.3})$</td>
+<td align="center"></td>
+<td align="center">$O(1)$</td>
+<td align="center">×</td>
+</tr>
+<tr>
+<td align="center">冒泡排序</td>
+<td align="center">$O(n)$</td>
+<td align="center">$O(n^2)$</td>
+<td align="center">$O(n^2)$</td>
+<td align="center">$O(1)$</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">快速排序</td>
+<td align="center">$O(nlog_2n)$</td>
+<td align="center">$O(nlog_2n)$</td>
+<td align="center">$O(n^2)$</td>
+<td align="center">$O(log_2n)$</td>
+<td align="center">×</td>
+</tr>
+<tr>
+<td align="center">简单选择</td>
+<td align="center">$O(n^2)$</td>
+<td align="center">$O(n^2)$</td>
+<td align="center">$O(n^2)$</td>
+<td align="center">$O(1)$</td>
+<td align="center">×</td>
+</tr>
+<tr>
+<td align="center">堆排序</td>
+<td align="center">$O(nlog_2n)$</td>
+<td align="center">$O(nlog_2n)$</td>
+<td align="center">$O(nlog_2n)$</td>
+<td align="center">$O(1)$</td>
+<td align="center">×</td>
+</tr>
+<tr>
+<td align="center">归并排序</td>
+<td align="center">$O(nlog_2n)$</td>
+<td align="center">$O(nlog_2n)$</td>
+<td align="center">$O(nlog_2n)$</td>
+<td align="center">$O(n)$</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">基数排序</td>
+<td align="center">$O(d(rd+n))$</td>
+<td align="center">$O(d(rd+n))$</td>
+<td align="center">$O(d(rd+n))$</td>
+<td align="center">$O(rd+n)$</td>
+<td align="center">√</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>按平均时间排序分为四类：$O(n^2)、O(nlog_\epsilon{n})、O(n^{1+\epsilon})、O(n)<br>$</p>
+</li>
+<li><p>选择排序方法应综合考虑各因素</p>
+<ul>
+<li><strong>快速排序</strong>是基于比较的内部排序中最好的方法</li>
+<li>关键字无序分布时，<strong>快速排序</strong>需要的时间最短，<strong>堆排序</strong>次之，但后者空间复杂度低</li>
+<li>当$n$较小时（$n&lt;50$），可直接采用<strong>直接插入排序</strong>或<strong>简单选择排序</strong>，前者是稳定排序，但后者通常记录移动次数少于前者</li>
+<li>当$n$较大时，应采用时间复杂度为$O(nlog_\epsilon{n})$的排序方法（主要为<strong>快速排序</strong>和<strong>堆排序</strong>）或者<strong>基数排序</strong>的方法，但后者对关键字的结构有一定要求</li>
+<li>当n较大时，为避免顺序储存时大量移动记录的时间开销，可考虑用链表作为存储结构（如<strong>插入排序、归并排序、基数排序</strong>）</li>
+<li>快速排序和堆排序难于在链表上实现，可以采用地址排序的方法，之后再按辅助表的次序重排各记录</li>
+<li>序列初态基本按正序排列时，应选用<strong>直接插入排序</strong>、<strong>冒泡排序</strong>、随机的快速排序</li>
+</ul>
+</li>
+</ul>
 <p>待完善</p>
  
       <!-- reward -->
